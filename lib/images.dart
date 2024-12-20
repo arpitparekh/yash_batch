@@ -26,26 +26,21 @@ class ImageWidgets extends StatelessWidget {
                   width: 200,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text("Brock Lesner give 17 Suplexes to John Cena to show him is true Aukad"),
+              Text("Brock Lesner gave 17 Suplexes to John Cena to show him he is the worst of all the time in history of not just wwe in wwf also and in the whole universe and every parrellel universe known and unknown to mankind!"),
               Image.asset(
                 "assets/images/worst_cena.jpg", // Correct the extension
                 height: 300,
                 width: 300,
+                
               ),
               UserProfileAvatar(
                 avatarUrl: 'https://picsum.photos/id/237/5000/5000',
                 onAvatarTap: () {
                   print('Aur ek Suplex Dedo');
                 },
-                notificationCount: 10,
-                notificationBubbleTextStyle: TextStyle(
-                  fontSize: 30,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
                 avatarSplashColor: Colors.purple,
                 radius: 100,
                 isActivityIndicatorSmall: false,
