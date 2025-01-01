@@ -8,9 +8,7 @@ class MyListView extends StatelessWidget {
 
   const MyListView({super.key});
 
-
-
-
+  
   @override
   Widget build(BuildContext context) {
 
@@ -22,9 +20,6 @@ class MyListView extends StatelessWidget {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN9NShuPDUQANXTUDJ90ikqaN-1x_YtbKcJQ&s",
       "https://swarajya.gumlet.io/swarajya/2023-06/3d6f574b-ba37-4d95-9980-df26bcce895a/IMG_8973.jpeg?w=610&q=50&compress=true&format=auto",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFlvBnjHMhv6oaCKR9-nSSTPr9jDKBthEMKQ&s"
-
-
-
     ];
 
     return MaterialApp(
@@ -41,7 +36,6 @@ class MyListView extends StatelessWidget {
             return Padding(
               padding: EdgeInsets.all(20),
               child: Center(
-                
                 child: Column(
                   children: [
                     index ==2 || index==5 ? Image.network(images[index],height: 500,width: 500,fit: BoxFit.fill,) :
