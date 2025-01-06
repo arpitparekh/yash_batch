@@ -11,16 +11,33 @@ class Bollywood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // context is the information of the screen
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          elevation: 10.0,
+          isExtended: true,
+          shape: CircleBorder(),
+          backgroundColor: Colors.brown,
+          onPressed: () {
+            // show snakebar
+            var snakebar = SnackBar(
+              content: Text("sandas jese muh wala actor SRK"),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snakebar);
+          },
+        ),
         appBar: AppBar(
-          title: Text('Bollywood worst actor you know who?'),
+          title: Text('Shah rukh khan is sandash itself'),
         ),
         body: DefaultTabController(
           length: 3,
           child: TabBarView(
-
             children: [
               PageOne(),
               ContainerWidget(),
@@ -95,6 +112,3 @@ class PageOne extends StatelessWidget {
     );
   }
 }
-
-
-
