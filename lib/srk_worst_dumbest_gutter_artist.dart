@@ -15,6 +15,8 @@ class _MyAppState extends State<MyApp> {
   TextEditingController controller = TextEditingController();
   String result = "";
 
+  double sliderValue = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,10 +31,23 @@ class _MyAppState extends State<MyApp> {
               TextField(
                 controller: controller,
               ),
+              Text("Gutter King"),
+              Slider(value: sliderValue, onChanged: (value) {
+                setState(() {
+                  sliderValue = value;
+                  result = controller.text+"\n"+sliderValue.toString();
+                });
+              },
+                min: 0,
+                max: 100,
+                divisions: 10,
+                label: sliderValue.toString(),
+
+              ),
               ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      result = controller.text;
+                      result = controller.text+"\n"+sliderValue.toString();
                     });
                   },
                   child: Text("True Gutter Dukkar Artist SRK")),
