@@ -33,7 +33,6 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   void initState() {
     // TODO: implement initState
-    // checkPermission();
     _determinePosition().then(
         (position) => {print("${position.latitude} ${position.longitude}")});
 
