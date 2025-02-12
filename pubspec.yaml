@@ -44,6 +44,7 @@ dependencies:
   firebase_analytics: ^11.4.2
   firebase_crashlytics: ^4.3.2
   firebase_auth: ^5.4.2
+  firebase_database: ^11.3.2
 
 
 dev_dependencies:

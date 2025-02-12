@@ -11,8 +11,8 @@ class LoginPageNew extends StatefulWidget {
 class _LoginPageState extends State<LoginPageNew> {
 
 
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPageNew> {
                   }
                 }
               },
-              child: Text(
+              child: const Text(
                 "Login",
               ))
         ]));

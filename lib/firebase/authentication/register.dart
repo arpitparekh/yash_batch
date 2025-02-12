@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:yash_batch/firebase/authentication/login.dart';
 
 import '../../firebase_options.dart';
-import '../../login_screen.dart';
 
 late final FirebaseApp app;
 late final FirebaseAuth auth;
@@ -15,7 +14,7 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   auth = FirebaseAuth.instanceFor(app: app);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -41,8 +40,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
 
 
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +54,14 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           TextField(
             controller: emailController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
               border: OutlineInputBorder(),
             ),
           ),
           TextField(
             controller: passwordController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Password',
               border: OutlineInputBorder(),
             ),
@@ -97,10 +96,10 @@ class _RegisterPageState extends State<RegisterPage> {
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPageNew()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPageNew()));
 
-          }, child: Text("Register")),
-          Text("Already have an account? Login")
+          }, child: const Text("Register")),
+          const Text("Already have an account? Login")
         ]
       ),
     );
