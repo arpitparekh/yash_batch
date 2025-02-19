@@ -1,6 +1,14 @@
-class User{
+class UserData{
+  String? key;
   String? name;
-  String? phone;
+  String? phone_number;
 
-  User(String name, String phone);
+  UserData({required this.key, required this.name, required this.phone_number});
+
+  UserData.create(String k, String n, String p) {
+    key = k;
+    name = n;
+    phone_number = p;
+  }
+
 }
