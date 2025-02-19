@@ -44,6 +44,10 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
     DatabaseReference ref = FirebaseDatabase.instance.ref("users");
     ref.onValue.listen((snapshot) {
 
+      setState(() {
+
+      });
+
       userDataList.clear();
 
       for(var child in snapshot.snapshot.children) {
@@ -59,9 +63,7 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
       }
     });
 
-    setState(() {
 
-    });
 
   }
 
@@ -76,8 +78,6 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
 
   @override
   Widget build(BuildContext context) {
-
-
 
     return Scaffold(
       appBar: AppBar(
@@ -113,6 +113,7 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
                 'phone_number': phoneNumberController.text,
               }
             );
+            readData();
 
           }, child: Text("Submit")),
           ListView.builder(
