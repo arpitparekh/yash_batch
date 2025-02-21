@@ -44,15 +44,6 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
 
   void readData() async{
 
-    DatabaseReference ref2 = FirebaseDatabase.instance.ref("title");
-    ref.child(dt.microsecondsSinceEpoch.toString()).set(
-        {
-          'name': nameController.text,
-          'phone_number': phoneNumberController.text,
-        }
-    );
-
-
     DatabaseReference ref = FirebaseDatabase.instance.ref("users");
     ref.onValue.listen((snapshot) {
 
@@ -85,14 +76,6 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
     nameController =   TextEditingController();
     phoneNumberController = TextEditingController();
     readData();
-
-    DatabaseReference ref2 = FirebaseDatabase.instance.ref("title");
-
-    ref2.set(
-        {
-          'title': 'chakko ka badshah gutter ka raja nallo na king SRK'
-        }
-    );
 
   }
 
