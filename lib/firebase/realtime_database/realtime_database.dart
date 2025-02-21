@@ -37,10 +37,22 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
 
   late TextEditingController nameController;
   late TextEditingController phoneNumberController;
+  late UserData updatedObject;
 
   List<UserData> userDataList = [];
+  bool update = false;
 
   void readData() async{
+
+    DatabaseReference ref2 = FirebaseDatabase.instance.ref("title");
+    ref.child(dt.microsecondsSinceEpoch.toString()).set(
+        {
+          'name': nameController.text,
+          'phone_number': phoneNumberController.text,
+        }
+    );
+
+
     DatabaseReference ref = FirebaseDatabase.instance.ref("users");
     ref.onValue.listen((snapshot) {
 
@@ -74,6 +86,14 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
     phoneNumberController = TextEditingController();
     readData();
 
+    DatabaseReference ref2 = FirebaseDatabase.instance.ref("title");
+
+    ref2.set(
+        {
+          'title': 'chakko ka badshah gutter ka raja nallo na king SRK'
+        }
+    );
+
   }
 
   @override
@@ -104,15 +124,34 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
           ),
           TextButton(onPressed: () {
 
-            DatabaseReference ref = FirebaseDatabase.instance.ref("users");
+            if(update){  // update
 
-            DateTime dt = DateTime.now();
-            ref.child(dt.microsecondsSinceEpoch.toString()).set(
-              {
-                'name': nameController.text,
-                'phone_number': phoneNumberController.text,
-              }
-            );
+              DatabaseReference ref = FirebaseDatabase.instance.ref("users");
+              ref.child(updatedObject.key!).update(
+                {
+                  'name': nameController.text,
+                  'phone_number': phoneNumberController.text,
+                }
+              );
+
+              update = false;
+
+            }else{  // insert
+
+              DatabaseReference ref = FirebaseDatabase.instance.ref("users");
+
+              DateTime dt = DateTime.now();
+              ref.child(dt.microsecondsSinceEpoch.toString()).set(
+                  {
+                    'name': nameController.text,
+                    'phone_number': phoneNumberController.text,
+                  }
+              );
+
+            }
+
+            nameController.clear();
+            phoneNumberController.clear();
             readData();
 
           }, child: Text("Submit")),
@@ -137,7 +176,12 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
                         icon: Icon(Icons.delete),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          nameController.text = userDataList[index].name!;
+                          phoneNumberController.text = userDataList[index].phone_number!;
+                          updatedObject = userDataList[index];
+                          update = true;
+                        },
                         icon: Icon(Icons.edit),
                       )
                     ],
