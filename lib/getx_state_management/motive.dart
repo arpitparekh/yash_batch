@@ -25,6 +25,6 @@ class Motive {
   @override
   String toString() {
     // TODO: implement toString
-    return "$id $phrase $author $religion";
+    return "Id: $id\nPhase: $phrase\nAuthor: $author";
   }
 }
