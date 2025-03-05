@@ -27,7 +27,7 @@ class MyListView extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Worst Actor Panel list"),
+          title: const Text("Worst Actor Panel list"),
           backgroundColor: Colors.lightBlueAccent,
         ),
         body: ListView.builder(
@@ -41,7 +41,7 @@ class MyListView extends StatelessWidget {
                     index ==2 || index==5 ? Image.network(images[index],height: 500,width: 500,fit: BoxFit.fill,) :
                     Image.network(images[index],height: 300,width: 300,),
                     Text(list[index],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30
                     ),)
                   ],
